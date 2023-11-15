@@ -19,15 +19,27 @@ export class MembersDetailComponent implements OnInit{
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
       let id = parseInt(param.get('id') || '{}');
-      this.selectedId = id
+      this.selectedId = id;
+      this.loadMember(this.selectedId);
     });
-    this.loadMember(this.selectedId);
+
   }
 
   loadMember(memberId: any) {
     this.api.getMember(memberId).subscribe(
       data => {
         console.log(data);
+        this.selectedMember = data;
+      },
+      error => {
+        console.log("Aconteceu um erro", error.message)
+      }
+    )
+  }
+
+  update(){
+    this.api.updateMember(this.selectedMember).subscribe(
+      data => {
         this.selectedMember = data;
       },
       error => {

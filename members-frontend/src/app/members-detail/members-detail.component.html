@@ -1,4 +1,8 @@
 <h1>Members details</h1>
 Membro Carregado: {{ selectedMember.name }} - {{ selectedMember.surname }} - {{ selectedMember.adress }} - {{ selectedMember.phone }}
 <p>Member ID: {{ selectedId }}</p>
-
+<input type="text" [(ngModel)]="selectedMember.id" readonly>
+<input type="text" [(ngModel)]="selectedMember.name">
+<input type="text" [(ngModel)]="selectedMember.surname">
+<input type="text" [(ngModel)]="selectedMember.phone">
+<button (click)="update()">Update Member</button>
