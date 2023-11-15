@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit{
 
   public selectedMember?: any = [];
 
-  constructor(private api: ApiService){}
+  constructor(private api: ApiService,
+              private router: Router){}
 
   ngOnInit(): void {
       this.getMembers();
@@ -36,15 +38,7 @@ export class AppComponent implements OnInit{
   }
 
   memberClicked(id: number){
-    this.api.getMember(id).subscribe(
-      data => {
-        console.log(data);
-        this.selectedMember = data;
-      },
-      error => {
-        console.log("Aconteceu um erro", error);
-      }
-    )
+    this.router.navigate(['member-detail', id])
   }
 
 }

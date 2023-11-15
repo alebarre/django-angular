@@ -1,0 +1,23 @@
+Angular
+
+npm install -g @angular/cli
+ng new my-dream-app
+cd my-dream-app
+ng serve
+ng generate service api
+ng generate component members-detail
+
+Django
+django-admin startproject myproject - começar o projeto Django
+python manage.py migrate - cria o BD
+python manage.py createsuperuser - Criar o usuario na interface web de admin do Django
+python manage.py runserver - Roda o servidor
+python manage.py startapp - crai o app (model)
+
+Rest Framework
+pip install djangorestframework - Instalar
+
+Deploy
+sudo /etc/init.d/nginx restart
+sudo systemctl restart apache2
+sudo systemctl restart djangovps.service
