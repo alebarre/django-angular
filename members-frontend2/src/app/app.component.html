@@ -1,0 +1,15 @@
+<h1>Members!</h1>
+<ul>
+  <li *ngFor="let item of members" (click)="memberClicked(item.id)">
+  {{ item.id }}  -  {{ item.name }}
+  </li>
+</ul>
+
+<!-- <p>{{  selectedMember.id }}</p>
+<p>{{  selectedMember.name }}</p>
+<p>{{  selectedMember.surname }}</p>
+<p>{{  selectedMember.adress }}</p>
+<p>{{  selectedMember.phone }}</p> -->
+
+<router-outlet></router-outlet>
+
