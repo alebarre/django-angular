@@ -13,7 +13,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-
   getMember(id: number): Observable<any>{
     return this.http.get(this.baseUrl + 'members/' + id + '/', {headers: this.httpHeaders})
   }
