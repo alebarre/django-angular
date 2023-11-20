@@ -9,7 +9,9 @@ export class ApiService {
 
   private baseUrl = 'http://localhost:8000/'
 
-  httpHeaders = new HttpHeaders({'COntent-Type' : 'application/json'});
+  token = 'Token 1dc98d9b0db638c89ed565ca3c10448d95e21bee';
+
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.token);
 
   constructor(private http: HttpClient) { }
 

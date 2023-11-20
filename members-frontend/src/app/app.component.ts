@@ -13,17 +13,16 @@ export class AppComponent implements OnInit{
 
   public selectedMember?: any = [];
 
-  constructor(private api: ApiService,
-              private router: Router){}
+  constructor(private api: ApiService, private router: Router){  }
 
   ngOnInit(): void {
-      this.getMembers();
+    this.getMembers();
   }
 
   members = [
-    {name: 'Member 01', id: 1, surname: 'ciclano', photo: 'http://www.minhaapp.com/photo1'},
-    {name: 'Member 02', id: 2, surname: 'beltrano', photo: 'http://www.minhaapp.com/photo2'},
-    {name: 'Member 03', id: 3, surname: 'fulano', photo: 'http://www.minhaapp.com/photo3'}
+    {name: 'Member 01', id: 1, surname: 'ciclano', adress: '', phone: '', photo: 'http://www.minhaapp.com/photo1'},
+    {name: 'Member 02', id: 2, surname: 'beltrano', adress: '', phone: '', photo: 'http://www.minhaapp.com/photo2'},
+    {name: 'Member 03', id: 3, surname: 'fulano', adress: '', phone: '', photo: 'http://www.minhaapp.com/photo3'}
   ]
 
   getMembers = () => {

@@ -1,5 +1,6 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class MembersDetailComponent implements OnInit{
   public selectedId: any = '';
 
   constructor(private route: ActivatedRoute,
-              private api: ApiService){ }
+              private api: ApiService,
+              private router: Router,
+              private appComponent: AppComponent){ }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
@@ -48,4 +51,27 @@ export class MembersDetailComponent implements OnInit{
     )
   }
 
+  newMember(){
+    this.router.navigate(['new-member']);
+  }
+
+  delete(){
+    this.api.deleteMember(this.selectedId).subscribe(
+      data => {
+        let index = 0;
+        this.appComponent.members.forEach((e, i) => {
+          if (e.id == this.selectedId){
+            index = i
+          }
+        })
+        this.appComponent.members.splice(index, 1);
+      },
+      error => {
+        console.log("Aconteceu um erro", error.message)
+      }
+    )
+  }
+
 }
+
+

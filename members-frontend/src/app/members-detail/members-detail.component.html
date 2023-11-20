@@ -1,8 +1,25 @@
 <h1>Members details</h1>
-Membro Carregado: {{ selectedMember.name }} - {{ selectedMember.surname }} - {{ selectedMember.adress }} - {{ selectedMember.phone }}
-<p>Member ID: {{ selectedId }}</p>
-<input type="text" [(ngModel)]="selectedMember.id" readonly>
-<input type="text" [(ngModel)]="selectedMember.name">
-<input type="text" [(ngModel)]="selectedMember.surname">
-<input type="text" [(ngModel)]="selectedMember.phone">
-<button (click)="update()">Update Member</button>
+<b>Member loaded:</b><br> {{ selectedMember.name }} <br> {{ selectedMember.surname }} <br> {{ selectedMember.adress }} <br> {{ selectedMember.phone }}
+<br>
+<span class="image left">
+  <img src="{{ selectedMember.photo }}" alt="Foto de {{selectedMember.name}}">
+</span>
+<br>
+<br>
+
+<div>
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="selectedMember.name"><br>
+  <label>Surname:</label>
+  <input type="text" [(ngModel)]="selectedMember.surname"><br>
+  <label>Adress:</label>
+  <input type="text" [(ngModel)]="selectedMember.adress"><br>
+  <label>Phone:</label>
+  <input type="text" [(ngModel)]="selectedMember.phone"><br>
+</div>
+
+<button (click)="newMember()" class="button confirm">New Member</button>&nbsp;
+
+<button (click)="update()" class="button primary">Update Member</button>&nbsp;
+
+<button (click)="delete()"  class="button cancel">Delete Member</button>&nbsp;

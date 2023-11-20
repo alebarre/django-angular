@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MembersDetailComponent } from './members-detail/members-detail.component';
+import { NewMemberComponent } from './new-member/new-member.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembersDetailComponent
+    MembersDetailComponent,
+    NewMemberComponent
   ],
   imports: [
     BrowserModule,
